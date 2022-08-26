@@ -29,7 +29,7 @@ class Product
 
     public function htmlResponse(array $data)
     {
-        return view('product-list', ['product' => $data]);
+        return view('product.product-list', ['product' => $data]);
     }
 
 }
