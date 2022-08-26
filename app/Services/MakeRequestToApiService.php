@@ -17,6 +17,11 @@ class MakeRequestToApiService
     {
     }
 
+    /**
+     * Get the product list from the webservice
+     *
+     * @return array|\Illuminate\Http\Client\RequestException|mixed|void|null
+     */
     public function getProducts()
     {
         try {
@@ -40,13 +45,18 @@ class MakeRequestToApiService
 
     }
 
+    /**
+     * Get a specific product details from the webservice
+     *
+     * @param $slug
+     * @return array|mixed|void
+     */
     public function getProductDetail($slug = null)
     {
         try {
             return Http::retry(
                 $this->retryTimes,
                 $this->retryMilliseconds,
-                throw: false
             )->get($this->baseUrl . "/info", ['id' => $slug])->json();
         }
         catch (Exception $exception) {
