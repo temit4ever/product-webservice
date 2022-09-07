@@ -2,6 +2,7 @@
 
 use App\Actions\Product;
 use App\Actions\ProductDetail;
+use App\Actions\TestProject;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Product::class)->name('product.index');
 Route::get('product/details/{slug}', ProductDetail::class)->name('product.show');
+Route::get('products', TestProject::class);
 
 
