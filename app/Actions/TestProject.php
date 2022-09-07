@@ -15,7 +15,7 @@ class TestProject
     use AsAction;
     public function handle()
     {
-        $users = User::withCount('orders' )->where('id', 2)
+        $users = User::withCount('orders' )->with('orders')
             ->get();
         return ['users' => $users];
     }
